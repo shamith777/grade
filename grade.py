@@ -1,4 +1,3 @@
-# student_grade.py
 
 def calculate_grade(average):
     if average >= 90:
@@ -15,8 +14,12 @@ def calculate_grade(average):
 def main():
     marks = []
     for i in range(5):
-        mark = float(input(f"Enter marks for subject {i+1}: "))
-        marks.append(mark)
+        try:
+            mark = float(input(f"Enter marks for subject {i+1}: "))
+            marks.append(mark)
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+            return 
 
     average = sum(marks) / 5
     grade = calculate_grade(average)
